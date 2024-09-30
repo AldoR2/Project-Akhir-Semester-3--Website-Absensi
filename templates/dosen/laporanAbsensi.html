@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!--=============== REMIXICONS ===============-->
+      <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+
+      <!--=============== CSS ===============-->
+      <link rel="stylesheet" href="../../assets/css/styles.css">
+
+      <title>Absensi</title>
+   </head>
+   <body>
+      <!--=============== HEADER ===============-->
+      <header class="header">
+         <nav class="nav container">
+            <div class="nav__data">
+               <a href="#" class="nav__logo">
+                  <img src="../../assets/img/logoStikes.png" alt="logo-stikes-panti-waluyo" width="230px" height="50px"> 
+               </a>
+               
+               <div class="nav__toggle" id="nav-toggle">
+                  <i class="ri-menu-line nav__burger"></i>
+                  <i class="ri-close-line nav__close"></i>
+               </div>
+            </div>
+
+            <!--=============== NAV MENU ===============-->
+            <div class="nav__menu" id="nav-menu">
+               <ul class="nav__list">
+                  <li><a href="dashboard.html" class="nav__link">Home</a></li>
+
+                  <li><a href="absensi.html" class="nav__link">Absensi</a></li>
+
+                  <!-- Dropdown Mahasiswa -->
+                  <li class="dropdown__item">
+                     <div class="nav__link">
+                        Mahasiswa <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                     </div>
+
+                     <ul class="dropdown__menu">
+                        <li>
+                           <a href="formMhs.html" class="dropdown__link">
+                              <i class="ri-add-circle-line"></i> Tambah Mahasiswa
+                           </a>                          
+                        </li>
+
+                        <li>
+                           <a href="dataMhs.html" class="dropdown__link">
+                              <i class="ri-edit-2-line"></i> Data Mahasiswa
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+
+                  <!-- Dropdown Dosen -->
+                  <li class="dropdown__item">
+                     <div class="nav__link">
+                        Dosen <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                     </div>
+
+                     <ul class="dropdown__menu">
+                        <li>
+                           <a href="formDosen.html" class="dropdown__link">
+                              <i class="ri-add-circle-line"></i> Tambah Dosen
+                           </a>                          
+                        </li>
+
+                        <li>
+                           <a href="dataDosen.html" class="dropdown__link">
+                              <i class="ri-edit-2-line"></i> Data Dosen
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+
+                  <!-- Dropdown Matkul -->
+                  <li class="dropdown__item">
+                     <div class="nav__link">
+                        Matkul <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                     </div>
+
+                     <ul class="dropdown__menu">
+                        <li>
+                           <a href="formMatkul.html" class="dropdown__link">
+                              <i class="ri-add-circle-line"></i> Tambah Matkul
+                           </a>                          
+                        </li>
+
+                        <li>
+                           <a href="dataMatkul.html" class="dropdown__link">
+                              <i class="ri-edit-2-line"></i> Data Matkul
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+
+                  <li class="dropdown__item">
+                     <div class="nav__link">
+                        Laporan <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                     </div>
+
+                     <ul class="dropdown__menu">
+                        <li>
+                           <a href="laporanAbsensi.html" class="dropdown__link">
+                              <i class="ri-add-circle-line"></i> Laporan Absensi
+                           </a>                          
+                        </li>
+
+                        <li>
+                           <a href="formMhs.html" class="dropdown__link">
+                              <i class="ri-edit-2-line"></i> Laporan Absensi
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+                  <!-- Dropdown Users -->
+                  <li class="dropdown__item users">
+                     <div class="nav__link">
+                        Users <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                     </div>
+
+                     <ul class="dropdown__menu">
+                        <li>
+                           <a href="../ubahPassword.html" class="dropdown__link">
+                              <i class="ri-user-line"></i> Ubah Password
+                           </a>                          
+                        </li>
+
+                        <li>
+                           <a href="#" class="dropdown__link">
+                              <i class="ri-logout-circle-line"></i> LogOut
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+         </nav>
+      </header>
+
+      <section class="content container">
+         <div class="menu_screen">
+            <h1>Laporan Absensi</h1>
+         </div>
+
+         <div class="form_content">
+            <div class="dropdown_semester">
+                <label for="semester">Pilih Semester</label>
+                <select id="semester" class="dropdown">
+                    <option value="" disabled selected>Pilih Semester</option>
+                    <option value="1">Semester 1</option>
+                    <option value="2">Semester 2</option>
+                    <option value="3">Semester 3</option>
+                    <option value="4">Semester 4</option>
+                    <option value="5">Semester 5</option>
+                    <option value="6">Semester 6</option>
+                </select>
+            </div>
+        </div>
+
+         <div class="table-responsive">
+            <button class="btn_refresh"><i class="ri-refresh-line"></i> Print</button>
+            <div class="search">
+               <label for="semester">Pilih Tanggal</label>
+                <select id="semester" class="dropdown">
+                    <option value="" disabled selected>perhari</option>
+                    <option value="1">perminggu</option>
+                    <option value="2">perbulan</option>
+                    <option value="3">pertahun</option>
+                    <option value="4">persepuluhtahun</option>
+                    <option value="5">persatuabad</option>
+                    <option value="6">perseratusabad</option>
+                </select>
+           </div>
+            <table>
+               <thead>
+                  <tr>
+                     <th>No</th>
+                     <th>Image</th>
+                     <th>Nim</th>
+                     <th>Nama</th>
+                     <th>Kelamin</th>
+                     <th>Jurusan</th>
+                     <th>Prodi</th>
+                     <th>Telepon</th>
+                     <th>Alamat</th>
+                     <th>Aksi</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>01</td>
+                     <td><img src="../../assets/img/profil.jpeg" alt=""></td>
+                     <td>E41231275</td>
+                     <td>Edwin Kurniawan</td>
+                     <td>Laki-laki</td>
+                     <td>Teknologi Informasi</td>
+                     <td>Teknik Informatika</td>
+                     <td>081515173887</td>
+                     <td>Jember</td>
+                     <td>
+                        <span class="action_btn">
+                           <a href="#">Edit</a>
+                           <a href="#">Hapus</a>
+                        </span>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>01</td>
+                     <td><img src="../../assets/img/profil.jpeg" alt=""></td>
+                     <td>E41231275</td>
+                     <td>Edwin Kurniawan</td>
+                     <td>Laki-laki</td>
+                     <td>Teknologi Informasi</td>
+                     <td>Teknik Informatika</td>
+                     <td>081515173887</td>
+                     <td>Jember</td>
+                     <td>
+                        <span class="action_btn">
+                           <a href="#">Edit</a>
+                           <a href="#">Hapus</a>
+                        </span>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+       </section>
+
+
+      <footer class="footer">
+         <div class="footer__container">
+             <div class="footer__section">
+                 <h4>Follow Us</h4>
+                 <div class="footer__socials">
+                     <a href="https://www.instagram.com" target="_blank"><i class="ri-instagram-line"></i></a>
+                     <a href="https://www.facebook.com" target="_blank"><i class="ri-facebook-circle-line"></i></a>
+                     <a href="https://www.twitter.com" target="_blank"><i class="ri-twitter-line"></i></a>
+                     <a href="https://www.youtube.com" target="_blank"><i class="ri-youtube-line"></i></a>
+                 </div>
+             </div>
+     
+             <div class="footer__section">
+                 <h4>Contact Us</h4>
+                 <p><i class="ri-map-pin-line"></i> 1234 Street Name, City, Country</p>
+                 <p><i class="ri-phone-line"></i> +62 812-3456-7890</p>
+                 <p><i class="ri-mail-line"></i> email@example.com</p>
+             </div>
+         </div>
+     
+         <div class="footer__bottom">
+             <p>&copy; 2024 YourCompany. All rights reserved.</p>
+         </div>
+     </footer>
+
+      <!--=============== MAIN JS ===============-->
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="../../assets/js/main.js"></script>
+   </body>
+</html>
