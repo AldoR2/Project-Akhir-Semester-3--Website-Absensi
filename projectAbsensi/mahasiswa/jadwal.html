@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!--=============== REMIXICONS ===============-->
+   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+
+   <!--=============== CSS ===============-->
+   <link rel="stylesheet" href="../assets/css/styles.css">
+
+   <title>Absensi</title>
+</head>
+
+<body>
+   <!--=============== HEADER ===============-->
+   <header class="header">
+      <nav class="nav container">
+         <div class="nav__data">
+            <a href="#" class="nav__logo">
+               <img src="../assets/img/logoStikes.png" alt="logo-stikes-panti-waluyo" width="230px" height="50px">
+            </a>
+
+            <div class="nav__toggle" id="nav-toggle">
+               <i class="ri-menu-line nav__burger"></i>
+               <i class="ri-close-line nav__close"></i>
+            </div>
+         </div>
+
+         <!--=============== NAV MENU ===============-->
+         <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+               <li><a href="../../home.html" class="nav__link">Home</a></li>
+
+               <!-- Dropdown Mahasiswa -->
+               <li><a href="dataAbsensi.html" class="nav__link">Absensi</a></li>
+
+               <!-- Dropdown Matkul -->
+               <li class="dropdown__item">
+                  <div class="nav__link">
+                     Matkul <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                  </div>
+
+                  <ul class="dropdown__menu">
+                     <li>
+                        <a href="jadwal.html" class="dropdown__link">
+                           <i class="ri-add-circle-line"></i> Jadwal Kuliah
+                        </a>
+                     </li>
+
+                     <li>
+                        <a href="dataMatkul.html" class="dropdown__link">
+                           <i class="ri-edit-2-line"></i> Data Matkul
+                        </a>
+                     </li>
+                  </ul>
+               </li>
+
+               <!-- Dropdown Users -->
+               <li class="dropdown__item">
+                  <div class="nav__link">
+                     Users <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                  </div>
+
+                  <ul class="dropdown__menu">
+                     <li>
+                        <a href="#" class="dropdown__link">
+                           <i class="ri-user-line"></i> Profiles
+                        </a>
+                     </li>
+
+                     <li>
+                        <a href="../../index.html" class="dropdown__link">
+                           <i class="ri-logout-circle-line"></i> LogOut
+                        </a>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+         </div>
+      </nav>
+   </header>
+
+   <section class="content container">
+      <div class="content">
+         <div class="navbar2">
+            <a href="../../home.html">
+               Home
+            </a>
+            / Matkul
+            / Jadwal Kuliah
+         </div>
+      </div>
+      <br>
+      <div class="menu_screen">
+         <h1>Jadwal Kuliah Per Semester</h1>
+      </div>
+
+      <div class="table-responsive">
+         <div class="form-group">
+            <label for="jurusan">Tahun Ajaran</label>
+            <select id="jurusan" name="jurusan" required>
+               <option value="2024/2025 Ganjil">2024/2025 Ganjil</option>
+               <option value="2023/2024 Genap">2023/2024 Genap</option>
+               <option value="2023/2024 Ganjil">2023/2024 Ganjil</option>
+            </select>
+         </div>
+      </div>
+      <br>
+      <div class="table-responsive">
+         <button class="btn_refresh"><i class="ri-refresh-line"></i> Refresh</button>
+         <div class="search">
+            <label for="search">Search:&nbsp;&nbsp;</label>
+            <input type="text" id="search">
+         </div>
+         <br>
+         <table>
+            <thead>
+               <tr>
+                  <th>Hari <i class="fa-solid fa-sort"></i></i></th>
+                  <th>Jam <i class="fa-solid fa-sort"></i></th>
+                  <th>Durasi</th>
+                  <th>Mata Kuliah</th>
+                  <th>Ruang</th>
+                  <th>Dosen Koordinator</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>Jum'at</td>
+                  <td>09:00 WIB</td>
+                  <td>2 Jam</td>
+                  <td>Matematika Diskrit</td>
+                  <td>GEDUNG TEKNOLOGI INFORMASI - KELAS TI LT. 4</td>
+                  <td>Zilvanhisna Emka Fitri S.T., M.T.</td>
+               </tr>
+               <tr>
+                  <td>Jum'at</td>
+                  <td>07:00 WIB</td>
+                  <td>2 Jam</td>
+                  <td>Konsep Jaringan Komputer</td>
+                  <td>GEDUNG TEKNOLOGI INFORMASI - KELAS TI LT. 4</td>
+                  <td>Nugroho Setyo Wibowo S.T., M.T.</td>
+               </tr>
+               <tr>
+                  <td>Kamis</td>
+                  <td>07:00 WIB</td>
+                  <td>2 Jam</td>
+                  <td>Workshop Kualitas Perangkat Lunak</td>
+                  <td>GEDUNG TEKNOLOGI INFORMASI - KELAS TI 3.8</td>
+                  <td>Ratih Ayuninghemi S.S.T., M.Kom.</td>
+               </tr>
+               <tr>
+                  <td>Kamis</td>
+                  <td>13:00 WIB</td>
+                  <td>2 Jam</td>
+                  <td>Interpersonal Skill</td>
+                  <td>GEDUNG TEKNOLOGI INFORMASI - KELAS TI 3.8</td>
+                  <td>Yogiswara S.T., M.T.</td>
+               </tr>
+               <tr>
+                  <td>Kamis</td>
+                  <td>15:00 WIB</td>
+                  <td>2 Jam</td>
+                  <td>Struktur Data</td>
+                  <td>GEDUNG TEKNOLOGI INFORMASI - KELAS TI 3.8</td>
+                  <td>Moch.Munih Dian W S.Kom., M.T.</td>
+               </tr>
+               <tr>
+                  <td>Kamis</td>
+                  <td>09:00 WIB</td>
+                  <td>2 Jam</td>
+                  <td>Workshop Kualitas Perangkat Lunak</td>
+                  <td>GEDUNG TEKNOLOGI INFORMASI - KELAS TI 3.8</td>
+                  <td>Ratih Ayuninghemi S.S.T., M.Kom.</td>
+               </tr>
+            </tbody>
+         </table>
+         <br>
+         <br>
+         <p>Showing 1 to 16 of 16 entries</p>
+      </div>
+   </section>
+   <br>
+   <div class="footer">
+      <br>
+      <div class="social-icons">
+         <a><i class="fa-brands fa-youtube"></i></a>
+         <a><i class="fa-brands fa-instagram"></i></a>
+         <a><i class="fa-brands fa-twitter"></i></i></a>
+         <a><i class="fa-brands fa-facebook"></i></i></a>
+      </div>
+      <div class="contact-info">
+         STIKES PANTI WALUYA MALANG<br>
+         Jalan Yulius Usman No. 62 Malang<br>
+         Telp. <a href="tel:+62341369003">+62-341369003</a><br>
+         Email : <a href="mailto: info@stikespantiwaluya.ac.id">info@stikespantiwaluya.ac.id</a><br>
+      </div>
+      <div class="copyright">
+         Copyright © 2024 Stikes Panti Waluya Malang
+      </div>
+   </div>
+
+   <script src="https://kit.fontawesome.com/448de76965.js" crossorigin="anonymous"></script>
+   <!--=============== MAIN JS ===============-->
+   <script src="../assets/js/main.js"></script>
+</body>
+
+</html>
