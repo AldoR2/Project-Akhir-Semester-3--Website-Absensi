@@ -388,9 +388,43 @@ a {
 }
 
 .container1 {
-  justify-content: center;
-  align-items: center;
+  background-color: #dbf9d4;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
+
+.container1 p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.container1 .green {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.container1 .red {
+  color: #bc0000;
+  font-weight: bold;
+}
+
+.container1 .yellow {
+  color: #ffd900;
+  font-weight: bold;
+}
+
+.container1 .gray {
+  color: #343a40;
+  font-weight: bold;
+}
+
+.container1 .blue {
+  color: #1100fa;
+  font-weight: bold;
+}
+
 
 .container2 {
   justify-content: center;
@@ -663,7 +697,8 @@ table td {
 }
 
 th {
-  background-color: #f8f9fa;
+  background-color: #646464;
+  color: #ffffff;
 }
 
 th i {
@@ -732,7 +767,18 @@ table>tbody>tr>td>img {
   color: #fff;
   border-radius: 50%;
   line-height: 20px;
-  background-color: #e9fa00;
+  background-color: #ffd900;
+}
+
+.attendance-status-sakit {
+  display: inline-block;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  border-radius: 50%;
+  line-height: 20px;
+  background-color: #1100fa;
 }
 
 .action_btn {
@@ -808,6 +854,11 @@ table>tbody>tr:hover {
     /* Ukuran font lebih besar agar lebih mudah dibaca */
     margin-top: 10px;
     /* Jarak antara label dan input */
+  }
+
+  .navbar2 {
+    width: 100%;
+    margin-top: -35px;
   }
 }
 
