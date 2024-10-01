@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2024 at 05:10 PM
+-- Generation Time: Oct 01, 2024 at 02:55 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -36,6 +36,20 @@ CREATE TABLE `dosen` (
   `alamat` varchar(255) NOT NULL,
   `password` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `dosen`
+--
+
+INSERT INTO `dosen` (`nip`, `nama`, `jenis_kelamin`, `email`, `no_telp`, `alamat`, `password`) VALUES
+('1011987654321', 'Hayoo', 'laki_laki', 'hayoo@gmail.com', '0878787878787', 'Mastrip Selatan', 'hayoo'),
+('1081197654321', 'Rohim ', 'laki_laki', 'rohim@gmail.com', '082341248764', 'Mastrip Utara', 'rohim'),
+('1110987654321', 'Dwi', 'perempuan', 'dwi@gmail.com', '089847382756', 'Mastrip Timur', 'dwi'),
+('1234567891011', 'Tris', 'laki_laki', 'tris@gmail.com', '087284918392', 'Jl mastrip bagian timur', 'tris'),
+('2101198765431', 'Sugeng', 'laki_laki', 'sugeng@gmail.com', '087798987463', 'Mastrip 5 ', 'sugeng seleb'),
+('6101198754321', 'Imam', 'laki_laki', 'imam@gmail.com', '0822374618729', 'Batu raden', 'imam'),
+('7101198654321', 'saroh', 'perempuan', 'sarohcute@gmail.com', '087739818728', 'Mastrip utara titik', 'saroh cute'),
+('9101187654321', 'Nis', 'perempuan', 'nis@gmail.com', '0876778463271', 'Mastrip Barat', 'nis');
 
 --
 -- Triggers `dosen`
@@ -162,21 +176,20 @@ CREATE TABLE `mahasiswa` (
   `email` varchar(100) NOT NULL,
   `jenis_kelamin` enum('laki_laki','perempuan') NOT NULL,
   `no_telp` char(13) NOT NULL,
-  `password` varchar(225) NOT NULL,
-  `golongan` char(2) NOT NULL
+  `password` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `mahasiswa`
 --
 
-INSERT INTO `mahasiswa` (`nim`, `nama`, `program_studi`, `semester`, `email`, `jenis_kelamin`, `no_telp`, `password`, `golongan`) VALUES
-('D51325123', 'Jahenuri', '', 4, '', '', '', '', ''),
-('E1234123', '', '', 8, '', '', '', '', ''),
-('E4123123', 'Bimaa Penegak kebenaran', 'tkk', 14, '', 'laki_laki', '', '12321231', ''),
-('E4123412', 'Udin sedunia', 'TIF', 12, 'Udin@gmail.com', 'laki_laki', '089423452', '1234123', ''),
-('F51235132', '', '', 5, '', '', '', '', ''),
-('J51325132', 'Munip', '', 6, '', '', '', '', '');
+INSERT INTO `mahasiswa` (`nim`, `nama`, `program_studi`, `semester`, `email`, `jenis_kelamin`, `no_telp`, `password`) VALUES
+('E4123123', 'Bimaa Penegak kebenaran', 'tkk', 14, '', 'laki_laki', '', '12321231'),
+('E4123321', 'Farhan', 'MIF', 3, 'farhan@gmail.com', 'laki_laki', '087309128921', 'farhan'),
+('E41234133', 'Jalaludin', 'Tkk', 3, 'jalaludin@gmail.com', 'laki_laki', '084712984289', 'jalaludin'),
+('E4123542', 'Hermawan', 'MIF', 3, 'hermawan@gmail.com', 'laki_laki', '0834123493851', 'hermawan'),
+('E4124132', 'Hania', 'MIF', 1, 'hania@gmail.com', 'perempuan', '0847298412134', 'hania'),
+('E41244323', 'Ningsih ', 'TIF', 1, 'ningsih@gmail.com', 'perempuan', '0837828471879', 'ningsih');
 
 --
 -- Triggers `mahasiswa`
@@ -200,6 +213,17 @@ CREATE TABLE `mata_kuliah` (
   `nip` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `mata_kuliah`
+--
+
+INSERT INTO `mata_kuliah` (`kode_matkul`, `nama_matkul`, `nip`) VALUES
+('ws_andro_001', 'Workshop Android', '1081197654321'),
+('ws_bd_001', 'Workshop Basis Data', '1011987654321'),
+('ws_kpl_001', 'Workshop Kualitas Perangkat Lunak', '1110987654321'),
+('ws_rpl_001', 'Workshop Rekayasa Perangkat Lunak', '1081197654321'),
+('ws_web_001', 'Workshop Website', '1011987654321');
+
 -- --------------------------------------------------------
 
 --
@@ -213,6 +237,15 @@ CREATE TABLE `transaksi` (
   `nip` varchar(20) NOT NULL,
   `kode_matkul` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`no_transaksi`, `waktu`, `nim`, `nip`, `kode_matkul`) VALUES
+('001', '2024-10-01 12:52:30', 'E4123123', '1011987654321', 'ws_andro_001'),
+('002', '2024-10-01 12:52:57', 'E4123321', '1011987654321', 'ws_kpl_001'),
+('003', '2024-10-01 12:52:57', 'E4123542', '1081197654321', 'ws_kpl_001');
 
 --
 -- Indexes for dumped tables
@@ -294,7 +327,7 @@ ALTER TABLE `log_mahasiswa`
 -- Constraints for table `mata_kuliah`
 --
 ALTER TABLE `mata_kuliah`
-  ADD CONSTRAINT `nip_dosen` FOREIGN KEY (`nip`) REFERENCES `dosen` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `nip_dosen` FOREIGN KEY (`nip`) REFERENCES `dosen` (`nip`);
 
 --
 -- Constraints for table `transaksi`
