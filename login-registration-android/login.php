@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include 'db_connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -42,11 +44,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Login Berhasil
             $response['status'] = 'success';
             $response['message'] = 'Login Berhasil';
+
+            // Simpan data ke session
+            $_SESSION['role'] = $role;
             if ($role == 'dosen') {
+                $_SESSION['nip'] = $row['nip'];
                 $response['nip'] = $row['nip'];
             } else {
+                $_SESSION['nim'] = $row['nim'];
                 $response['nim'] = $row['nim'];
             }
+            $_SESSION['nama'] = $row['nama'];
             $response['nama'] = $row['nama'];
         } else {
             // Password Salah
