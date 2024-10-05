@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 03, 2024 at 05:26 PM
+-- Generation Time: Oct 05, 2024 at 08:37 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -176,6 +176,7 @@ CREATE TABLE `mahasiswa` (
   `email` varchar(100) NOT NULL,
   `jenis_kelamin` enum('laki_laki','perempuan') NOT NULL,
   `no_telp` char(13) NOT NULL,
+  `alamat` varchar(225) NOT NULL,
   `password` varchar(225) NOT NULL,
   `foto` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -184,13 +185,13 @@ CREATE TABLE `mahasiswa` (
 -- Dumping data for table `mahasiswa`
 --
 
-INSERT INTO `mahasiswa` (`nim`, `nama`, `program_studi`, `semester`, `email`, `jenis_kelamin`, `no_telp`, `password`, `foto`) VALUES
-('E4123123', 'Bimaa Penegak kebenaran', 'tkk', 14, '', 'laki_laki', '', '12321231', ''),
-('E4123321', 'Farhan', 'MIF', 3, 'farhan@gmail.com', 'laki_laki', '087309128921', 'farhan', ''),
-('E41234133', 'Jalaludin', 'Tkk', 3, 'jalaludin@gmail.com', 'laki_laki', '084712984289', 'jalaludin', ''),
-('E4123542', 'Hermawan', 'MIF', 3, 'hermawan@gmail.com', 'laki_laki', '0834123493851', 'hermawan', ''),
-('E4124132', 'Hania', 'MIF', 1, 'hania@gmail.com', 'perempuan', '0847298412134', 'hania', ''),
-('E41244323', 'Ningsih ', 'TIF', 1, 'ningsih@gmail.com', 'perempuan', '0837828471879', 'ningsih', '');
+INSERT INTO `mahasiswa` (`nim`, `nama`, `program_studi`, `semester`, `email`, `jenis_kelamin`, `no_telp`, `alamat`, `password`, `foto`) VALUES
+('E4123123', 'Bimaa Penegak kebenaran', 'tkk', 14, '', 'laki_laki', '', '', '12321231', ''),
+('E4123321', 'Farhan', 'MIF', 3, 'farhan@gmail.com', 'laki_laki', '087309128921', '', 'farhan', ''),
+('E41234133', 'Jalaludin', 'Tkk', 3, 'jalaludin@gmail.com', 'laki_laki', '084712984289', '', 'jalaludin', ''),
+('E4123542', 'Hermawan', 'MIF', 3, 'hermawan@gmail.com', 'laki_laki', '0834123493851', '', 'hermawan', ''),
+('E4124132', 'Hania', 'MIF', 1, 'hania@gmail.com', 'perempuan', '0847298412134', '', 'hania', ''),
+('E41244323', 'Ningsih ', 'TIF', 1, 'ningsih@gmail.com', 'perempuan', '0837828471879', '', 'ningsih', '');
 
 --
 -- Triggers `mahasiswa`
