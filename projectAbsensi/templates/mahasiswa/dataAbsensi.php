@@ -9,96 +9,29 @@
    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
 
    <!--=============== CSS ===============-->
-   <link rel="stylesheet" href="../assets/css/styles.css">
+   <link rel="stylesheet" href="../../assets/css/styles.css">
 
    <title>Absensi</title>
 </head>
 
+<?php 
+   include("header.php");
+?>
+
 <body>
-   <!--=============== HEADER ===============-->
-   <header class="header">
-      <nav class="nav container">
-         <div class="nav__data">
-            <a href="#" class="nav__logo">
-               <img src="../assets/img/logoStikes.png" alt="logo-stikes-panti-waluyo" width="230px" height="50px">
-            </a>
-
-            <div class="nav__toggle" id="nav-toggle">
-               <i class="ri-menu-line nav__burger"></i>
-               <i class="ri-close-line nav__close"></i>
-            </div>
-         </div>
-
-         <!--=============== NAV MENU ===============-->
-         <div class="nav__menu" id="nav-menu">
-            <ul class="nav__list">
-               <li><a href="../../home.html" class="nav__link">Home</a></li>
-
-               <!-- Dropdown Mahasiswa -->
-               <li><a href="dataAbsensi.html" class="nav__link">Absensi</a></li>
-
-               <!-- Dropdown Matkul -->
-               <li class="dropdown__item">
-                  <div class="nav__link">
-                     Matkul <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                  </div>
-
-                  <ul class="dropdown__menu">
-                     <li>
-                        <a href="jadwal.html" class="dropdown__link">
-                           <i class="ri-add-circle-line"></i> Jadwal Kuliah
-                        </a>
-                     </li>
-
-                     <li>
-                        <a href="dataMatkul.html" class="dropdown__link">
-                           <i class="ri-edit-2-line"></i> Data Matkul
-                        </a>
-                     </li>
-                  </ul>
-               </li>
-
-               <!-- Dropdown Users -->
-               <li class="dropdown__item">
-                  <div class="nav__link">
-                     Users <i class="ri-arrow-down-s-line dropdown__arrow"></i>
-                  </div>
-
-                  <ul class="dropdown__menu">
-                     <li>
-                        <a href="#" class="dropdown__link">
-                           <i class="ri-user-line"></i> Profiles
-                        </a>
-                     </li>
-
-                     <li>
-                        <a href="../../index.html" class="dropdown__link">
-                           <i class="ri-logout-circle-line"></i> LogOut
-                        </a>
-                     </li>
-                  </ul>
-               </li>
-            </ul>
-         </div>
-      </nav>
-   </header>
-
-
    <section class="content container">
-      <div class="content">
-         <div class="navbar2">
-            <a href="../../home.html">
-               Home
-            </a>
-            / Absensi
-         </div>
+      <div class="navbar2">
+         <a href="home.php">
+            Home
+         </a>
+         / Absensi
       </div>
       <br>
       <div class="menu_screen">
          <h1>Rekap Absensi Kehadiran Mahasiswa</h1>
       </div>
 
-      <div class="table-responsive">
+      <div class="table-bg">
          <div class="form-group">
             <label for="jurusan">Tahun Ajaran</label>
             <select id="jurusan" name="jurusan" required>
@@ -109,12 +42,17 @@
          </div>
       </div>
       <br>
-      <div class="table-responsive">
+
+   
+
+      
+      <div class="table-bg">
          <button class="btn_refresh"><i class="ri-refresh-line"></i> Refresh</button>
-         <div class="search">
-            <label for="search">Search:&nbsp;&nbsp;</label>
-            <input type="text" id="search">
-         </div>
+            <div class="search">
+               <label for="search">Search:&nbsp;&nbsp;</label>
+               <input type="text" id="search">
+            </div>
+         <div class="table-responsive">      
          <br>
          <table>
             <thead>
@@ -187,7 +125,9 @@
          </table>
          <br>
          <br>
-         <div class="container1">
+      </div>
+      <br>
+      <div class="container1">
             <p style="color: #28a745;"><span class="green">H</span> = Hadir</p>
             <p style="color: #bc0000;"><span class="red">A</span> = Tidak masuk tanpa keterangan</p>
             <p style="color: #ffd900;"><span class="yellow">I</span> = Tidak masuk dengan ijin</p>
@@ -198,25 +138,32 @@
          <p>Showing 1 to 16 of 16 entries</p>
       </div>
    </section>
-   <br>
-   <div class="footer">
-      <br>
-      <div class="social-icons">
-         <a><i class="fa-brands fa-youtube"></i></a>
-         <a><i class="fa-brands fa-instagram"></i></a>
-         <a><i class="fa-brands fa-twitter"></i></i></a>
-         <a><i class="fa-brands fa-facebook"></i></i></a>
+
+
+   <footer class="footer">
+      <div class="footer__container">
+         <div class="footer__section">
+            <h4>Follow Us</h4>
+            <div class="footer__socials">
+               <a href="https://www.instagram.com" target="_blank"><i class="ri-instagram-line"></i></a>
+               <a href="https://www.facebook.com" target="_blank"><i class="ri-facebook-circle-line"></i></a>
+               <a href="https://www.twitter.com" target="_blank"><i class="ri-twitter-line"></i></a>
+               <a href="https://www.youtube.com" target="_blank"><i class="ri-youtube-line"></i></a>
+            </div>
+         </div>
+
+         <div class="footer__section">
+            <h4>Contact Us</h4>
+            <a href="https://www.google.com/maps/place/Jalan+Yulius+Usman+No.+62,+Malang,+Indonesia"><i class="ri-map-pin-line"></i> Jalan Yulius Usman No. 62, Malang, Indonesia</a>
+            <p><i class="ri-phone-line"></i> +62 341-369003</p>
+            <a href="mailto:info@stikespantiwaluya.ac.id"><i class="ri-mail-line"></i> info@stikespantiwaluya.ac.id</a>
+         </div>
       </div>
-      <div class="contact-info">
-         STIKES PANTI WALUYA MALANG<br>
-         Jalan Yulius Usman No. 62 Malang<br>
-         Telp. <a href="tel:+62341369003">+62-341369003</a><br>
-         Email : <a href="mailto: info@stikespantiwaluya.ac.id">info@stikespantiwaluya.ac.id</a><br>
+
+      <div class="footer__bottom">
+         <p>Copyrigth &copy; 2024 Stikes Panti Waluya Malang .</p>
       </div>
-      <div class="copyright">
-         Copyright © 2024 Stikes Panti Waluya Malang
-      </div>
-   </div>
+   </footer>
 
    <script src="https://kit.fontawesome.com/448de76965.js" crossorigin="anonymous"></script>
    <!--=============== MAIN JS ===============-->

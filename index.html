@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Absensi</title>
 	<link rel="stylesheet" type="text/css" href="projectAbsensi/assets/css/login.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<script src="https://kit.fontawesome.com/448de76965.js" crossorigin="anonymous"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
 	<img class="wave" src="projectAbsensi/assets/img/gambar.png">
 	<div class="container">
@@ -14,35 +16,42 @@
 			<img src="projectAbsensi/assets/img/login.png">
 		</div>
 		<div class="login-content">
-			<form action="home.html" method="get">
+			<form action="login.php" method="post" class="formRegister">
 				<img src="projectAbsensi/assets/img/logoStikes.png">
-           		<div class="input-div one">
-           		   <div class="i">
-           		   		<i class="fas fa-user"></i>
-           		   </div>
-           		   <div class="div">
-           		   		<h5>Username</h5>
-           		   		<input type="text" class="input">
-           		   </div>
-           		</div>
-           		<div class="input-div pass">
-           		   <div class="i"> 
-           		    	<i class="fas fa-lock"></i>
-           		   </div>
-           		   <div class="div">
-           		    	<h5>Password</h5>
-           		    	<input type="password" class="input">
-            	   </div>
-            	</div>
-            	<a href="lupa.html">Lupa Password?</a>	
+				<div class="input-div one">
+					<div class="i">
+						<i class="fas fa-user"></i>
+					</div>
+					<div class="div">
+						<h5>Username</h5>
+						<input type="text" class="input" id="username" name="username">
+					</div>
+				</div>
+				<div class="input-div pass">
+					<div class="i">
+						<i class="fas fa-lock"></i>
+					</div>
+					<div class="div">
+						<h5>Password</h5>
+						<input type="password" class="input">
+					</div>
+				</div>
+				<div class="remember-me" style="margin-top: 15px; margin-bottom: -10px; display: flex; justify-content: left;">
+					<input id="remember-me" type="checkbox" style="margin-right: 5px;" />
+					<label for="remember-me">
+						Remember me
+					</label>
+				</div>
+				<a href="lupa.html">Lupa Password?</a>
 				<input type="submit" class="btn" value="Login">
 				<div class="register">
 					<h4>Belum Memiliki Akun?</h4>
 					<a href="register.html">Register</a>
 				</div>
-            </form>
-        </div>
-    </div>
-    <script type="text/javascript" src="projectAbsensi/assets/js/form.js"></script>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript" src="projectAbsensi/assets/js/form.js"></script>
 </body>
+
 </html>

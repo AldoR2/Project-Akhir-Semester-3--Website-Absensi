@@ -1,12 +1,41 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Absensi</title>
 	<link rel="stylesheet" type="text/css" href="projectAbsensi/assets/css/register.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<script src="https://kit.fontawesome.com/448de76965.js" crossorigin="anonymous"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		html {
+			scroll-behavior: smooth;
+		}
+
+		/* width */
+		::-webkit-scrollbar {
+			width: 20px;
+		}
+
+		/* Track */
+		::-webkit-scrollbar-track {
+			box-shadow: inset 0 0 5px rgb(255, 255, 255);
+			border-radius: 10px;
+		}
+
+		/* Handle */
+		::-webkit-scrollbar-thumb {
+			background: rgb(0, 213, 255);
+			border-radius: 10px;
+		}
+
+		/* Handle on hover */
+		::-webkit-scrollbar-thumb:hover {
+			background: #003f7a;
+		}
+	</style>
 </head>
+
 <body>
 	<img class="wave" src="projectAbsensi/assets/img/gambar.png">
 	<div class="container">
@@ -14,61 +43,94 @@
 			<img src="projectAbsensi/assets/img/register.png">
 		</div>
 		<div class="login-content">
-			<form action="index.html">
+			<form action="index.html" class="register1">
 				<img src="projectAbsensi/assets/img/logoStikes.png">
-           		<div class="input-div one">
-           		   <div class="i">
-           		   		<i class="fas fa-user"></i>
-           		   </div>
-           		   <div class="div">
-           		   		<h5>User ID (NIM)</h5>
-           		   		<input type="text" class="input">
-           		   </div>
-           		</div>
-           		<div class="input-div one">
-           		   <div class="i">
-           		   		<i class="fas fa-user"></i>
-           		   </div>
-           		   <div class="div">
-           		   		<h5>Nama</h5>
-           		   		<input type="text" class="input">
-           		   </div>
-           		</div>
-           		<div class="input-div one">
-           		   <div class="i">
-           		   		<i class="fas fa-envelope"></i>
-           		   </div>
-           		   <div class="div">
-           		   		<h5>Email</h5>
-           		   		<input type="text" class="input">
-           		   </div>
-           		</div>
-           		<div class="input-div pass">
-           		   <div class="i"> 
-           		    	<i class="fas fa-lock"></i>
-           		   </div>
-           		   <div class="div">
-           		    	<h5>Password</h5>
-           		    	<input type="password" class="input">
-            	   </div>
-            	</div>
-           		<div class="input-div pass">
-           		   <div class="i"> 
-           		    	<i class="fas fa-check"></i>
-           		   </div>
-           		   <div class="div">
-           		    	<h5>Confirm Password</h5>
-           		    	<input type="password" class="input">
-            	   </div>
-            	</div>
+				<div class="input-div one">
+					<div class="i">
+						<i class="fas fa-user"></i>
+					</div>
+					<div class="div">
+						<h5>User ID (NIM)</h5>
+						<input type="text" class="input">
+					</div>
+				</div>
+				<div class="input-div one">
+					<div class="i">
+						<i class="fas fa-user"></i>
+					</div>
+					<div class="div">
+						<h5>Nama</h5>
+						<input type="text" class="input">
+					</div>
+				</div>
+				<div class="input-div one">
+					<div class="i">
+						<i class="fa-solid fa-person"></i>
+					</div>
+					<div class="div">
+						<h5>Jenis Kelamin</h5>
+						<input type="text" class="input">
+					</div>
+				</div>
+				<div class="input-div one">
+					<div class="i">
+						<i class="fas fa-envelope"></i>
+					</div>
+					<div class="div">
+						<h5>Email</h5>
+						<input type="text" class="input">
+					</div>
+				</div>
+				<div class="select-menu">
+					<div class="select">
+						<!-- <i class="fa-solid fa-school"></i> -->
+						<span>Pilih Program Studi</span>
+						<i class="fa-solid fa-angle-down"></i>
+					</div>
+					<div class="options-list">
+						<div class="option">S1-Farmasi</div>
+						<div class="option">S1-Keperawatan & Ners</div>
+						<div class="option">D4-MIK</div>
+						<div class="option">D3-Keperawatan</div>
+					</div>
+				</div>
+				<div class="input-div one">
+					<div class="i">
+						<i class="fa-solid fa-phone"></i>
+					</div>
+					<div class="div">
+						<h5>No. Handphone</h5>
+						<input type="text" class="input">
+					</div>
+				</div>
+				<div class="input-div pass">
+					<div class="i">
+						<i class="fas fa-lock"></i>
+					</div>
+					<div class="div">
+						<h5>Password</h5>
+						<input type="password" class="input">
+					</div>
+				</div>
+				<div class="input-div pass">
+					<div class="i">
+						<i class="fas fa-lock"></i>
+					</div>
+					<div class="div">
+						<h5>Konfirmasi Password</h5>
+						<input type="password" class="input">
+					</div>
+				</div>
 				<input type="submit" class="btn" value="Submit">
 				<div class="register">
 					<h4>Sudah Memiliki Akun?</h4>
 					<a href="index.html">Login</a>
 				</div>
-            </form>
-        </div>
-    </div>
-    <script type="text/javascript" src="projectAbsensi/assets/js/form.js"></script>
+			</form>
+		</div>
+	</div>
+	<script src="projectAbsensi/assets/js/register.js"></script>
+	<script type="text/javascript" src="projectAbsensi/assets/js/form.js"></script>
 </body>
+
 </html>
