@@ -687,6 +687,13 @@ a {
 }
 
 .table-responsive {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 15px;
+  overflow: auto;
+  margin: auto;
+  border-radius: 4px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   overflow-x: auto; /* Tambahkan ini untuk scrolling horizontal */
   overflow-y: hidden; /* Menonaktifkan scrolling vertikal */
 }
