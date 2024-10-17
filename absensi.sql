@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 05, 2024 at 08:37 PM
+-- Generation Time: Oct 17, 2024 at 02:57 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `aplikasi_absensi`
+-- Database: `absensi`
 --
 
 -- --------------------------------------------------------
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `dosen` (
   `nip` varchar(20) NOT NULL,
   `nama` varchar(200) NOT NULL,
+  `frid` varchar(100) NOT NULL,
   `jenis_kelamin` enum('laki_laki','perempuan') NOT NULL,
   `email` varchar(100) NOT NULL,
   `no_telp` char(13) NOT NULL,
@@ -42,15 +43,9 @@ CREATE TABLE `dosen` (
 -- Dumping data for table `dosen`
 --
 
-INSERT INTO `dosen` (`nip`, `nama`, `jenis_kelamin`, `email`, `no_telp`, `alamat`, `password`, `foto`) VALUES
-('1011987654321', 'Hayoo', 'laki_laki', 'hayoo@gmail.com', '0878787878787', 'Mastrip Selatan', 'hayoo', ''),
-('1081197654321', 'Rohim ', 'laki_laki', 'rohim@gmail.com', '082341248764', 'Mastrip Utara', 'rohim', ''),
-('1110987654321', 'Dwi', 'perempuan', 'dwi@gmail.com', '089847382756', 'Mastrip Timur', 'dwi', ''),
-('1234567891011', 'Tris', 'laki_laki', 'tris@gmail.com', '087284918392', 'Jl mastrip bagian timur', 'tris', ''),
-('2101198765431', 'Sugeng', 'laki_laki', 'sugeng@gmail.com', '087798987463', 'Mastrip 5 ', 'sugeng seleb', ''),
-('6101198754321', 'Imam', 'laki_laki', 'imam@gmail.com', '0822374618729', 'Batu raden', 'imam', ''),
-('7101198654321', 'saroh', 'perempuan', 'sarohcute@gmail.com', '087739818728', 'Mastrip utara titik', 'saroh cute', ''),
-('9101187654321', 'Nis', 'perempuan', 'nis@gmail.com', '0876778463271', 'Mastrip Barat', 'nis', '');
+INSERT INTO `dosen` (`nip`, `nama`, `frid`, `jenis_kelamin`, `email`, `no_telp`, `alamat`, `password`, `foto`) VALUES
+('192394091929', 'Udin', '', 'laki_laki', 'udin@gmail.com', '0857575775', 'Jember', 'din Udin', ''),
+('881920394898', 'Zahra', '', 'perempuan', 'zahra@gmail.com', '08837829842', 'Ntt', 'Zahra', '');
 
 --
 -- Triggers `dosen`
@@ -73,6 +68,14 @@ CREATE TABLE `dosen_matkul` (
   `nip` varchar(20) NOT NULL,
   `kode_matkul` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `dosen_matkul`
+--
+
+INSERT INTO `dosen_matkul` (`no`, `nip`, `kode_matkul`) VALUES
+(1, '192394091929', 'mk001'),
+(2, '192394091929', 'mk002');
 
 -- --------------------------------------------------------
 
@@ -171,27 +174,17 @@ INSERT INTO `log_mahasiswa` (`id_log`, `waktu`, `nim`, `nama`, `password`) VALUE
 CREATE TABLE `mahasiswa` (
   `nim` varchar(20) NOT NULL,
   `nama` varchar(200) NOT NULL,
-  `program_studi` char(100) NOT NULL,
+  `frid` varchar(100) NOT NULL,
   `semester` int(2) NOT NULL,
   `email` varchar(100) NOT NULL,
   `jenis_kelamin` enum('laki_laki','perempuan') NOT NULL,
   `no_telp` char(13) NOT NULL,
   `alamat` varchar(225) NOT NULL,
   `password` varchar(225) NOT NULL,
-  `foto` blob NOT NULL
+  `foto` blob NOT NULL,
+  `status` int(2) NOT NULL,
+  `id_prodi` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `mahasiswa`
---
-
-INSERT INTO `mahasiswa` (`nim`, `nama`, `program_studi`, `semester`, `email`, `jenis_kelamin`, `no_telp`, `alamat`, `password`, `foto`) VALUES
-('E4123123', 'Bimaa Penegak kebenaran', 'tkk', 14, '', 'laki_laki', '', '', '12321231', ''),
-('E4123321', 'Farhan', 'MIF', 3, 'farhan@gmail.com', 'laki_laki', '087309128921', '', 'farhan', ''),
-('E41234133', 'Jalaludin', 'Tkk', 3, 'jalaludin@gmail.com', 'laki_laki', '084712984289', '', 'jalaludin', ''),
-('E4123542', 'Hermawan', 'MIF', 3, 'hermawan@gmail.com', 'laki_laki', '0834123493851', '', 'hermawan', ''),
-('E4124132', 'Hania', 'MIF', 1, 'hania@gmail.com', 'perempuan', '0847298412134', '', 'hania', ''),
-('E41244323', 'Ningsih ', 'TIF', 1, 'ningsih@gmail.com', 'perempuan', '0837828471879', '', 'ningsih', '');
 
 --
 -- Triggers `mahasiswa`
@@ -212,19 +205,35 @@ DELIMITER ;
 CREATE TABLE `mata_kuliah` (
   `kode_matkul` varchar(20) NOT NULL,
   `nama_matkul` varchar(200) NOT NULL,
-  `nip` varchar(20) NOT NULL
+  `id_prodi` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `mata_kuliah`
 --
 
-INSERT INTO `mata_kuliah` (`kode_matkul`, `nama_matkul`, `nip`) VALUES
-('ws_andro_001', 'Workshop Android', '1081197654321'),
-('ws_bd_001', 'Workshop Basis Data', '1011987654321'),
-('ws_kpl_001', 'Workshop Kualitas Perangkat Lunak', '1110987654321'),
-('ws_rpl_001', 'Workshop Rekayasa Perangkat Lunak', '1081197654321'),
-('ws_web_001', 'Workshop Website', '1011987654321');
+INSERT INTO `mata_kuliah` (`kode_matkul`, `nama_matkul`, `id_prodi`) VALUES
+('mk001', 'Workshop Basis Data', 1),
+('mk002', 'Workshop Kualitas Perangkat Lunak', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `program_studi`
+--
+
+CREATE TABLE `program_studi` (
+  `id_prodi` int(11) NOT NULL,
+  `nama_prodi` char(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `program_studi`
+--
+
+INSERT INTO `program_studi` (`id_prodi`, `nama_prodi`) VALUES
+(1, 'Teknik Informatika'),
+(2, 'Teknik Komputer');
 
 -- --------------------------------------------------------
 
@@ -241,15 +250,6 @@ CREATE TABLE `transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `transaksi`
---
-
-INSERT INTO `transaksi` (`no_transaksi`, `waktu`, `nim`, `nip`, `kode_matkul`) VALUES
-('001', '2024-10-01 12:52:30', 'E4123123', '1011987654321', 'ws_andro_001'),
-('002', '2024-10-01 12:52:57', 'E4123321', '1011987654321', 'ws_kpl_001'),
-('003', '2024-10-01 12:52:57', 'E4123542', '1081197654321', 'ws_kpl_001');
-
---
 -- Indexes for dumped tables
 --
 
@@ -263,7 +263,9 @@ ALTER TABLE `dosen`
 -- Indexes for table `dosen_matkul`
 --
 ALTER TABLE `dosen_matkul`
-  ADD PRIMARY KEY (`no`);
+  ADD PRIMARY KEY (`no`),
+  ADD KEY `dosen_matkul_ibfk_1` (`nip`),
+  ADD KEY `kode_matkul` (`kode_matkul`);
 
 --
 -- Indexes for table `log_dosen`
@@ -281,14 +283,21 @@ ALTER TABLE `log_mahasiswa`
 -- Indexes for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  ADD PRIMARY KEY (`nim`);
+  ADD PRIMARY KEY (`nim`),
+  ADD KEY `program_studi` (`id_prodi`);
 
 --
 -- Indexes for table `mata_kuliah`
 --
 ALTER TABLE `mata_kuliah`
   ADD PRIMARY KEY (`kode_matkul`),
-  ADD KEY `nip_dosen` (`nip`);
+  ADD KEY `program_studi` (`id_prodi`);
+
+--
+-- Indexes for table `program_studi`
+--
+ALTER TABLE `program_studi`
+  ADD PRIMARY KEY (`id_prodi`);
 
 --
 -- Indexes for table `transaksi`
@@ -307,7 +316,7 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT for table `dosen_matkul`
 --
 ALTER TABLE `dosen_matkul`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `log_dosen`
@@ -322,14 +331,33 @@ ALTER TABLE `log_mahasiswa`
   MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
+-- AUTO_INCREMENT for table `program_studi`
+--
+ALTER TABLE `program_studi`
+  MODIFY `id_prodi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `dosen_matkul`
+--
+ALTER TABLE `dosen_matkul`
+  ADD CONSTRAINT `dosen_matkul_ibfk_1` FOREIGN KEY (`nip`) REFERENCES `dosen` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `dosen_matkul_ibfk_2` FOREIGN KEY (`kode_matkul`) REFERENCES `mata_kuliah` (`kode_matkul`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `mahasiswa`
+--
+ALTER TABLE `mahasiswa`
+  ADD CONSTRAINT `mahasiswa_ibfk_1` FOREIGN KEY (`id_prodi`) REFERENCES `program_studi` (`id_prodi`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `mata_kuliah`
 --
 ALTER TABLE `mata_kuliah`
-  ADD CONSTRAINT `nip_dosen` FOREIGN KEY (`nip`) REFERENCES `dosen` (`nip`);
+  ADD CONSTRAINT `program_studi` FOREIGN KEY (`id_prodi`) REFERENCES `program_studi` (`id_prodi`);
 
 --
 -- Constraints for table `transaksi`
