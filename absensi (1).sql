@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2024 at 02:57 AM
+-- Generation Time: Oct 17, 2024 at 04:03 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -24,28 +24,44 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` varchar(20) NOT NULL,
+  `frid` varchar(100) NOT NULL,
+  `nama` varchar(200) NOT NULL,
+  `jenis_kelamin` enum('laki_laki','perempuan') NOT NULL,
+  `tempat_lahir` varchar(100) NOT NULL,
+  `tanggal_lahir` date NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `no_telp` char(13) NOT NULL,
+  `alamat` varchar(255) NOT NULL,
+  `password` varchar(225) NOT NULL,
+  `token` varchar(100) NOT NULL,
+  `foto` blob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `dosen`
 --
 
 CREATE TABLE `dosen` (
   `nip` varchar(20) NOT NULL,
-  `nama` varchar(200) NOT NULL,
   `frid` varchar(100) NOT NULL,
+  `nama` varchar(200) NOT NULL,
   `jenis_kelamin` enum('laki_laki','perempuan') NOT NULL,
+  `tempat_lahir` varchar(100) NOT NULL,
+  `tanggal_lahir` date NOT NULL,
   `email` varchar(100) NOT NULL,
   `no_telp` char(13) NOT NULL,
   `alamat` varchar(255) NOT NULL,
   `password` varchar(225) NOT NULL,
+  `token` varchar(100) NOT NULL,
   `foto` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `dosen`
---
-
-INSERT INTO `dosen` (`nip`, `nama`, `frid`, `jenis_kelamin`, `email`, `no_telp`, `alamat`, `password`, `foto`) VALUES
-('192394091929', 'Udin', '', 'laki_laki', 'udin@gmail.com', '0857575775', 'Jember', 'din Udin', ''),
-('881920394898', 'Zahra', '', 'perempuan', 'zahra@gmail.com', '08837829842', 'Ntt', 'Zahra', '');
 
 --
 -- Triggers `dosen`
@@ -69,14 +85,6 @@ CREATE TABLE `dosen_matkul` (
   `kode_matkul` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `dosen_matkul`
---
-
-INSERT INTO `dosen_matkul` (`no`, `nip`, `kode_matkul`) VALUES
-(1, '192394091929', 'mk001'),
-(2, '192394091929', 'mk002');
-
 -- --------------------------------------------------------
 
 --
@@ -96,7 +104,8 @@ CREATE TABLE `log_dosen` (
 --
 
 INSERT INTO `log_dosen` (`id_log`, `nip`, `waktu`, `nama`, `password`) VALUES
-(1, '8719687416873', '2024-09-19 15:18:08', 'Udin yang pertamaa', '1324132413241');
+(1, '8719687416873', '2024-09-19 15:18:08', 'Udin yang pertamaa', '1324132413241'),
+(2, '121432432436', '2024-10-17 13:30:36', 'coikk\r\n', '123123');
 
 -- --------------------------------------------------------
 
@@ -173,17 +182,20 @@ INSERT INTO `log_mahasiswa` (`id_log`, `waktu`, `nim`, `nama`, `password`) VALUE
 
 CREATE TABLE `mahasiswa` (
   `nim` varchar(20) NOT NULL,
-  `nama` varchar(200) NOT NULL,
   `frid` varchar(100) NOT NULL,
-  `semester` int(2) NOT NULL,
-  `email` varchar(100) NOT NULL,
+  `nama` varchar(200) NOT NULL,
   `jenis_kelamin` enum('laki_laki','perempuan') NOT NULL,
+  `tempat_lahir` char(100) NOT NULL,
+  `tanggal_lahir` date NOT NULL,
+  `email` varchar(100) NOT NULL,
   `no_telp` char(13) NOT NULL,
   `alamat` varchar(225) NOT NULL,
+  `id_prodi` int(11) NOT NULL,
+  `semester` int(2) NOT NULL,
   `password` varchar(225) NOT NULL,
-  `foto` blob NOT NULL,
+  `token` varchar(100) NOT NULL,
   `status` int(2) NOT NULL,
-  `id_prodi` int(11) NOT NULL
+  `foto` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -238,6 +250,17 @@ INSERT INTO `program_studi` (`id_prodi`, `nama_prodi`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `semester`
+--
+
+CREATE TABLE `semester` (
+  `id_semester` int(11) NOT NULL,
+  `semester` char(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `transaksi`
 --
 
@@ -252,6 +275,12 @@ CREATE TABLE `transaksi` (
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `dosen`
@@ -300,6 +329,12 @@ ALTER TABLE `program_studi`
   ADD PRIMARY KEY (`id_prodi`);
 
 --
+-- Indexes for table `semester`
+--
+ALTER TABLE `semester`
+  ADD PRIMARY KEY (`id_semester`);
+
+--
 -- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
@@ -322,7 +357,7 @@ ALTER TABLE `dosen_matkul`
 -- AUTO_INCREMENT for table `log_dosen`
 --
 ALTER TABLE `log_dosen`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `log_mahasiswa`
@@ -335,6 +370,12 @@ ALTER TABLE `log_mahasiswa`
 --
 ALTER TABLE `program_studi`
   MODIFY `id_prodi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `semester`
+--
+ALTER TABLE `semester`
+  MODIFY `id_semester` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
