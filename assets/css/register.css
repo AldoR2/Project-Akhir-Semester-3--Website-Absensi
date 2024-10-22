@@ -1,0 +1,98 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+	background-image: url('../img/gambar.png');
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-content img {
+    display: block;
+    margin: 10px auto 20px;
+    width: 90%;
+	padding: 20px;
+	background-color: #0693e3;
+	border-radius: 5px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.input-field:focus {
+    border-color: #00d5ff;
+    outline: none;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #00d5ff;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #003f7a;
+}
+
+/* Error Message */
+.error-message {
+    color: red;
+    margin-bottom: 15px;
+}
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-field {
+    padding-right: 40px; /* Ruang untuk ikon */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px; /* Jarak dari kanan */
+    cursor: pointer;
+    z-index: 1; /* Pastikan ikon berada di atas input */
+    color: #666; /* Warna ikon */
+}
+
+.input-field::-ms-reveal {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .form-container {
+        padding: 15px;
+    }
+
+    .input-field, .submit-button {
+        padding: 8px;
+        font-size: 14px;
+    }
+}

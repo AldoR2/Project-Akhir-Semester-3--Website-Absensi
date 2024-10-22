@@ -1,0 +1,873 @@
+/* ============== START CONFIGURATION ======== */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  --black-color: hsl(220, 24%, 12%);
+  --black-color-light: hsl(220, 24%, 15%);
+  --black-color-lighten: hsl(220, 20%, 18%);
+  --white-color: #fff;
+  --body-color: hsl(220, 100%, 97%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Montserrat", sans-serif;
+  --normal-font-size: .938rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1024px) {
+  :root {
+    --normal-font-size: .9rem;
+  }
+}
+
+/*=============== Base ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background: url(../img/bg2.png);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*=============== Reusable class ===============*/
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+}
+/* ============== END CONFIGURATION =============== */
+
+
+/* ============== START DASHBOARD   =============== */
+.dashboard {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+  margin-top: 90px;
+  margin-bottom: 50px;
+}
+
+
+/* For small devices */
+@media screen and (max-width: 340px) {
+  .dashboard {
+    margin-inline: 1rem;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1118px) {
+  .dashboard {
+    margin-inline: auto;
+  }
+}
+/* ============== END DASHBOARD     =============== */
+
+
+
+
+/* ============== START ABSENSI   =============== */
+.absensi {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+  margin-top: 90px;
+  margin-bottom: 50px;
+}
+
+
+/* For small devices */
+@media screen and (max-width: 340px) {
+  .absensi {
+    margin-inline: 1rem;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1118px) {
+  .absensi {
+    margin-inline: auto;
+  }
+}
+/* ============== END ABSENSI     =============== */
+
+
+/* ============== START REKAP ABSENSI   =============== */
+.rekap_absensi {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+  margin-top: 90px;
+  margin-bottom: 50px;
+}
+
+
+/* For small devices */
+@media screen and (max-width: 340px) {
+  .rekap_absensi {
+    margin-inline: 1rem;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1118px) {
+  .rekap_absensi {
+    margin-inline: auto;
+  }
+}
+/* ============== END REKAP ABSENSI     =============== */
+
+
+/* ============== START UBAH PASSWORD   =============== */
+.ubahPassword {
+  text-align: right;
+}
+
+.form-password {
+  width: 70%;
+}
+
+.form-group-password label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+  margin-right: 20px;
+}
+
+.form-group-password input {
+  width: 40%;
+  margin-bottom: 20px;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group-password input:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+.btn-submit-password {
+  background-color: #3498db;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit-password:hover {
+  background-color: #2980b9;
+}
+
+@media screen and (max-width: 600px) {
+  .form-container {
+    padding: 20px;
+  }
+
+  .btn-submit-password {
+    width: 100%;
+  }
+
+  .form-group-password label {
+    display: block;
+  }
+
+  .form-group-password input {
+    width: 100%;
+  }
+
+  .ubahPassword {
+    text-align: left;
+  }
+
+  .form-password {
+    width: 100%;
+  }
+}
+
+/* ============== END UBAH PASSWORD     =============== */
+
+
+/* ========== SECTION CONTENT ===========*/
+.content {
+  margin-top: 87px;
+  margin-bottom: 50px;
+}
+
+.navbar2 {
+  width: 100%;
+  background-color: #e9ecef;
+  padding: 10px 20px;
+  font-size: 14px;
+  z-index: var(--z-fixed);
+}
+
+.navbar2 a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.navbar2 a:hover {
+  text-decoration: underline;
+}
+
+.judul {
+  background-color: #d1ecf1;
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  color: #0c5460;
+  animation: popOut 0.5s ease-in-out;
+}
+
+@keyframes popOut {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.container1 {
+  background-color: #dbf9d4;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.container1 p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.container1 .green {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.container1 .red {
+  color: #bc0000;
+  font-weight: bold;
+}
+
+.container1 .yellow {
+  color: #ffd900;
+  font-weight: bold;
+}
+
+.container1 .gray {
+  color: #343a40;
+  font-weight: bold;
+}
+
+.container1 .blue {
+  color: #1100fa;
+  font-weight: bold;
+}
+
+
+.container2 {
+  justify-content: center;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 600px;
+}
+
+.card1 {
+  background-color: #dbf9d4;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transition: transform 0.3s;
+}
+
+.profile-pic {
+  flex: 1;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.profile-pic img {
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.profile-pic button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.profile-info {
+  flex: 2;
+  padding-left: 10px;
+}
+
+.profile-info table {
+  background-color: #dbf9d4;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.profile-info table,
+.profile-info table tr,
+.profile-info table td {
+  border: none;
+}
+
+.profile-info table tr td:first-child {
+  font-weight: bold;
+  padding-right: 15px;
+  text-align: left;
+}
+
+.profile-info table tr td {
+  text-align: left;
+}
+
+.header1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #555;
+  position: relative;
+}
+
+.header1::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #ddd;
+  margin-top: 10px;
+}
+
+.row1 {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.label1 {
+  width: 300px;
+  font-weight: bold;
+  margin-right: 100px;
+  margin-bottom: 5px;
+}
+
+.value1 {
+  flex: 1;
+}
+
+/* ========== SUB MENU SCREEN ===========*/
+.menu_screen {
+  width: 100%;
+  padding: 20px 0;
+  margin-bottom: 20px;
+  background-color: #B0B0B0;
+  color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(30, 15, 95, 0.1);
+  text-align: center;
+  font-size: 24px;
+}
+
+/* ========== DROPDOWN =================*/
+.form_content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: var(--white-color);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown_semester {
+  padding: 30px 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown_semester label {
+  font-weight: var(--font-semi-bold);
+  color: #444;
+  margin-bottom: 0.5rem;
+  /* Jarak antara label dan dropdown */
+}
+
+.dropdown {
+  padding: 0.75rem;
+  /* Tambahkan padding untuk dropdown */
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: var(--white-color);
+  color: #444;
+  font-size: var(--normal-font-size);
+  appearance: none;
+  /* Menghilangkan default arrow di dropdown */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><path fill="%23000" d="M5 7.5L1 3h8z"/></svg>');
+  /* Tambahkan icon panah */
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  /* Posisi icon panah */
+  background-size: 10px;
+  /* Ukuran icon panah */
+}
+
+.dropdown:focus {
+  border-color: aquamarine;
+  /* Warna border saat focus */
+  box-shadow: 0 0 5px aquamarine;
+  /* Menambahkan shadow saat input fokus */
+  outline: none;
+  /* Menghilangkan outline default browser */
+}
+
+/* ================ BUTTON TABEL DATA ============== */
+.btn_refresh {
+  background-color: #3498db;
+  /* Warna latar belakang biru */
+  color: white;
+  /* Warna teks putih */
+  padding: 10px 20px;
+  /* Padding tombol */
+  border: none;
+  /* Menghilangkan border */
+  border-radius: 5px;
+  /* Sudut melengkung sederhana */
+  font-size: 16px;
+  /* Ukuran font */
+  cursor: pointer;
+  /* Kursor pointer saat hover */
+  transition: background-color 0.2s ease;
+  /* Animasi warna latar saat hover */
+  margin-bottom: 10px;
+}
+
+.btn_refresh:hover {
+  background-color: #2980b9;
+  /* Mengubah warna latar belakang saat hover */
+}
+
+.btn_refresh:active {
+  background-color: #1e6f94;
+  /* Warna lebih gelap saat tombol ditekan */
+}
+
+/* ================ SEARCH ==================== */
+
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.search label {
+  font-weight: 600;
+  /* Menggunakan angka untuk font-weight */
+  margin-right: 0.5rem;
+  /* Jarak antara label dan input */
+  color: #333;
+  /* Warna label agar lebih gelap */
+}
+
+.search input {
+  width: 250px;
+  /* Lebar input diperbesar sedikit */
+  padding: 0.55rem;
+  /* Padding lebih besar agar lebih nyaman */
+  border: 2px solid #666;
+  /* Border yang lebih tegas */
+  border-radius: 5px;
+  font-size: 16px;
+  /* Ukuran font tetap atau gunakan variabel */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  /* Transisi halus untuk efek focus */
+}
+
+.search input:focus {
+  border-color: aquamarine;
+  /* Warna border saat focus */
+  box-shadow: 0 0 5px aquamarine;
+  /* Menambahkan shadow saat input fokus */
+  outline: none;
+  /* Menghilangkan outline default browser */
+}
+
+
+
+/* ========== TABEL ===========*/
+
+.table-bg{
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 15px;
+  overflow: auto;
+  margin: auto;
+  border-radius: 4px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table-responsive {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 15px;
+  overflow: auto;
+  margin: auto;
+  border-radius: 4px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  overflow-x: auto; /* Tambahkan ini untuk scrolling horizontal */
+  overflow-y: hidden; /* Menonaktifkan scrolling vertikal */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #646464;
+  color: #ffffff;
+}
+
+th i {
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table>tbody>tr>td>img {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--white-color);
+  box-shadow: 0 2px 6px #0003;
+}
+
+.percentage {
+  background-color: #17a2b8;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.attendance-status {
+  display: inline-block;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  background-color: #343a40;
+  color: #fff;
+  border-radius: 50%;
+  line-height: 20px;
+}
+
+.attendance-status-hadir {
+  display: inline-block;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  border-radius: 50%;
+  line-height: 20px;
+  background-color: #28a745;
+}
+
+.attendance-status-alpha {
+  display: inline-block;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  border-radius: 50%;
+  line-height: 20px;
+  background-color: #bc0000;
+}
+
+.attendance-status-izin {
+  display: inline-block;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  border-radius: 50%;
+  line-height: 20px;
+  background-color: #ffd900;
+}
+
+.attendance-status-sakit {
+  display: inline-block;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  border-radius: 50%;
+  line-height: 20px;
+  background-color: #1100fa;
+}
+
+.action_btn {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+}
+
+.action_btn>a {
+  text-decoration: none;
+  /* color: #444;
+  background: var(--white-color); */
+  border: 1px solid;
+  display: inline-block;
+  padding: 8px 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: .3s ease-in-out;
+}
+
+.action_btn>a:nth-child(1) {
+  background: rgb(31, 78, 198);
+  color: var(--white-color);
+}
+
+.action_btn>a:nth-child(2) {
+  background: rgb(214, 9, 9);
+  color: var(--white-color);
+}
+
+.action_btn>a:hover {
+  box-shadow: 0 2px 8px #0003;
+}
+
+table>tbody>tr {
+  background-color: var(--white-color);
+  transition: .3s ease-in-out;
+}
+
+table>tbody>tr:nth-child(even) {
+  background-color: var(--white-color);
+}
+
+table>tbody>tr:hover {
+  filter: drop-shadow(0 4px 8px #0002);
+  background-color: #eee;
+}
+
+@media screen and (max-width: 768px) {
+  .btn_refresh {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+  }
+
+  .search {
+    flex-direction: column;
+    /* Agar label dan input berbaris vertikal di ponsel */
+    justify-content: center;
+    /* Pusatkan elemen secara horizontal */
+    align-items: center;
+    /* Pusatkan elemen secara vertikal */
+  }
+
+  .search input {
+    width: 100%;
+    /* Input memenuhi lebar layar */
+    max-width: 100%;
+    /* Pastikan tidak melebihi layar */
+    padding: 12px;
+    /* Padding lebih besar untuk layar sentuh */
+    font-size: 18px;
+    /* Ukuran font lebih besar agar lebih mudah dibaca */
+    margin-top: 10px;
+    /* Jarak antara label dan input */
+  }
+
+  .navbar2 {
+    width: 100%;
+    margin-top: -35px;
+  }
+}
+
+
+/* ======== FORM INPUT */
+
+h1 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+textarea {
+  resize: none;
+}
+
+/* Styling for radio buttons */
+.radio-group {
+  display: flex;
+  gap: 10px;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.radio-group input[type="radio"] {
+  margin-right: 8px;
+}
+
+/* Styling for submit button */
+.btn-submit {
+  background-color: #3498db;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #2980b9;
+}
+
+@media screen and (max-width: 600px) {
+  .form-container {
+    padding: 20px;
+  }
+}
+
+
+/* ============ home page ============== */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.card {
+  flex: 1;
+  background-color: #4e73df;
+  color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card h3 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.card p {
+  font-size: 2.5em;
+  margin: 10px 0 0;
+}
+
+.chart-container {
+  width: 100%;
+  padding: 20px;
+  background-color: #f8f9fc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

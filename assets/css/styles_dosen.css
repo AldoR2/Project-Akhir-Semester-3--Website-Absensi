@@ -1,0 +1,906 @@
+/* ============== START CONFIGURATION ======== */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  --black-color: hsl(220, 24%, 12%);
+  --black-color-light: hsl(220, 24%, 15%);
+  --black-color-lighten: hsl(220, 20%, 18%);
+  --white-color: #fff;
+  --body-color: hsl(220, 100%, 97%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Montserrat", sans-serif;
+  --normal-font-size: .938rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1024px) {
+  :root {
+    --normal-font-size: .9rem;
+  }
+}
+
+/*=============== Base ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background: url(../img/bg2.png);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*=============== Reusable class ===============*/
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+}
+/* ============== END CONFIGURATION =============== */
+
+
+
+/* ================== START FIXED CSS ============== */
+/* Start navbar_link */
+.navbar_link {
+  width: 100%;
+  background-color: #e9ecef;
+  padding: 10px 20px;
+  font-size: 14px;
+  z-index: var(--z-fixed);
+}
+
+.navbar_link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.navbar_link a:hover {
+  text-decoration: underline;
+}
+/* End navbar_link */
+
+/* Start page_title */
+.page_title {
+  width: 100%;
+  padding: 15px 0;
+  margin: 20px 0 20px 0;
+  background-color: #B0B0B0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(30, 15, 95, 0.1);
+  text-align: center;
+}
+
+.page_title h1{
+  font-size: 24px;
+  color: #eee;
+}
+/* End page_title */
+
+/* Start btn_refresh_data */
+.btn_refresh {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-bottom: 10px;
+}
+
+.btn_refresh:hover {
+  background-color: #2980b9;
+}
+
+.btn_refresh:active {
+  background-color: #1e6f94;
+}
+
+@media screen and (max-width: 768px) {
+  .btn_refresh {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+  }
+}
+/* End btn_refresh_data */
+
+/* Start search */
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.search label {
+  font-weight: 600;
+  margin-right: 0.5rem;
+  color: #333;
+}
+
+.search input {
+  width: 250px;
+  padding: 0.55rem;
+  border: 2px solid #666;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search input:focus {
+  border-color: aquamarine;
+  box-shadow: 0 0 5px aquamarine;
+  outline: none;
+}
+
+@media screen and (max-width: 768px) {
+  .search {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .search input {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+}
+/* End search */
+
+/* Start Form Input */
+h1 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+textarea {
+  resize: none;
+}
+
+.radio-group {
+  display: flex;
+  gap: 10px;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.radio-group input[type="radio"] {
+  margin-right: 8px;
+}
+
+.btn-submit {
+  background-color: #3498db;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #2980b9;
+}
+
+@media screen and (max-width: 600px) {
+  .form-container {
+    padding: 20px;
+  }
+}
+/* End Form Input */
+
+/* Start table */
+.table_bg{
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 15px;
+  overflow: auto;
+  margin: auto;
+  border-radius: 4px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table_scroll {
+  overflow-x: auto; 
+  overflow-y: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #646464;
+  color: #ffffff;
+}
+
+th i {
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table>tbody>tr>td>img {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--white-color);
+  box-shadow: 0 2px 6px #0003;
+}
+
+.action_btn {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+}
+
+.action_btn>a {
+  text-decoration: none;
+  border: 1px solid;
+  display: inline-block;
+  padding: 8px 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: .3s ease-in-out;
+}
+
+.action_btn>a:nth-child(1) {
+  background: rgb(31, 78, 198);
+  color: var(--white-color);
+}
+
+.action_btn>a:nth-child(2) {
+  background: rgb(214, 9, 9);
+  color: var(--white-color);
+}
+
+.action_btn>a:hover {
+  box-shadow: 0 2px 8px #0003;
+}
+
+table>tbody>tr {
+  background-color: var(--white-color);
+  transition: .3s ease-in-out;
+}
+
+table>tbody>tr:nth-child(even) {
+  background-color: var(--white-color);
+}
+
+table>tbody>tr:hover {
+  filter: drop-shadow(0 4px 8px #0002);
+  background-color: #eee;
+}
+/* End table */
+/* ================== END FIXED CSS ================ */
+
+
+
+/* =============== START DASHBOARD ================= */
+.dashboard {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+  margin-top: 90px;
+  margin-bottom: 50px;
+}
+
+.info_header {
+  background-color: #d1ecf1;
+  padding: 10px;
+  margin: 20px 0 20px 0;
+  text-align: center;
+  font-size: 18px;
+  color: #0c5460;
+  animation: popOut 0.5s ease-in-out;
+}
+
+.data_dashboard_dosen {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  width: 100%;
+}
+.left {
+  flex: 1 1 150px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.left img {
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+}
+.left button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.right {
+  flex: 2 1 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.right .row {
+  display: flex;
+  margin-bottom: 10px;
+}
+.right .row .label {
+  width: 300px;
+  font-weight: bold;
+}
+.right .row .value {
+  flex: 1;
+}
+.right .email {
+  display: flex;
+  align-items: center;
+}
+.right .email i {
+  margin-right: 5px;
+}
+@media (max-width: 880px) {
+  .right .row .label {
+      width: 150px;
+  }
+  .left {
+      flex: 1 1 100%;
+      text-align: center;
+  }
+  .left button {
+      width: 100%;
+      box-sizing: border-box;
+  }
+}
+
+/* For small devices */
+@media screen and (max-width: 340px) {
+  .dashboard {
+    margin-inline: 1rem;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1118px) {
+  .dashboard {
+    margin-inline: auto;
+  }
+}
+/* ===============  END DASHBOARD  ================= */
+
+
+/* =============== START ABSENSI =================== */
+.absensi{
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+  margin-top: 90px;
+  margin-bottom: 50px;
+}
+
+.form_absensi {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 20px;
+  gap: 1rem;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: var(--white-color);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form_absensi label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.dropdown_absensi,
+input[type="time"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dropdown_absensi:focus,
+input[type="time"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+.dropdown_absensi:hover,
+input[type="time"]:hover {
+  border-color: #aaa;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.5);
+  cursor: pointer;
+}
+
+.submit_button_absensi {
+  grid-column: span 2;
+}
+
+.submit_button_absensi button {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit_button_absensi button:hover {
+  background-color: #0056b3;
+}
+
+@media screen and (max-width: 340px) {
+  .absensi {
+    margin-inline: 1rem;
+  }
+}
+
+@media screen and (min-width: 1118px) {
+  .absensi {
+    margin-inline: auto;
+  }
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 1200px) {
+  .form_absensi {
+    grid-template-columns: 1fr;
+  }
+
+  .submit_button_absensi {
+    grid-column: span 1;
+  }
+}
+/* =============== END ABSENSI ===================== */
+
+
+
+/* =============== START FORM MAHASISWA ============ */
+.form_mhs{
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+  margin-top: 90px;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 340px) {
+  .form_mhs {
+    margin-inline: 1rem;
+  }
+}
+
+@media screen and (min-width: 1118px) {
+  .form_mhs {
+    margin-inline: auto;
+  }
+}
+/* =============== END FORM MAHASISWA ============== */
+
+
+
+/* =============== START DATA MAHASISWA ============ */
+.data_mhs{
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+  margin-top: 90px;
+  margin-bottom: 50px;
+}
+
+.form_content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: var(--white-color);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.dropdown_semester, .dropdown_prodi {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown_semester label, .dropdown_prodi label {
+  font-weight: var(--font-semi-bold);
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+.dropdown {
+  padding: 0.75rem;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: var(--white-color);
+  color: #444;
+  font-size: var(--normal-font-size);
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><path fill="%23000" d="M5 7.5L1 3h8z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 10px;
+}
+
+.dropdown:focus {
+  border-color: aquamarine;
+  box-shadow: 0 0 5px aquamarine;
+  outline: none;
+}
+
+/* Media Query untuk tampilan mobile */
+@media (max-width: 768px) {
+  .dropdown_container {
+      grid-template-columns: 1fr; 
+      gap: 0.5rem;
+  }
+  .dropdown_semester, .dropdown_prodi {
+    padding: 10px; 
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .data_mhs {
+    margin-inline: 1rem;
+  }
+}
+
+@media screen and (min-width: 1118px) {
+  .data_mhs {
+    margin-inline: auto;
+  }
+}
+/* =============== END DATA MAHASISWA ============== */
+
+
+
+/* =============== START FORM DOSEN ================ */
+.form_dosen{
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+  margin-top: 90px;
+  margin-bottom: 50px;
+}
+
+.btn_hapus{
+  margin-bottom: 20px;
+  background-color: #db3434;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn_tambah{
+  margin-bottom: 20px;
+  background-color: #3498db;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form_name h2{
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 340px) {
+  .form_dosen {
+    margin-inline: 1rem;
+  }
+}
+
+@media screen and (min-width: 1118px) {
+  .form_dosen {
+    margin-inline: auto;
+  }
+}
+/* =============== END FORM DOSEN ================== */
+
+
+
+/* =============== START DATA DOSEN ================ */
+.data_dosen{
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+  margin-top: 90px;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 340px) {
+  .data_dosen {
+    margin-inline: 1rem;
+  }
+}
+
+@media screen and (min-width: 1118px) {
+  .data_dosen {
+    margin-inline: auto;
+  }
+}
+/* =============== END DATA DOSEN ================ */
+
+
+
+/* =============== START FORM MATKUL ================ */
+.form_matkul{
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+  margin-top: 90px;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 340px) {
+  .form_matkul {
+    margin-inline: 1rem;
+  }
+}
+
+@media screen and (min-width: 1118px) {
+  .form_matkul {
+    margin-inline: auto;
+  }
+}
+/* =============== END FORM MATKUL ================ */
+
+
+
+/* =============== START DATA MATKUL ================ */
+.data_matkul{
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+  margin-top: 90px;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 340px) {
+  .data_matkul {
+    margin-inline: 1rem;
+  }
+}
+
+@media screen and (min-width: 1118px) {
+  .data_matkul {
+    margin-inline: auto;
+  }
+}
+/* =============== END DATA MATKUL ================ */
+
+
+
+/* =============== START LAPORAN ABSENSI ============ */
+.laporan_absensi{
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+  margin-top: 90px;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 340px) {
+  .laporan_absensi {
+    margin-inline: 1rem;
+  }
+}
+
+@media screen and (min-width: 1118px) {
+  .laporan_absensi {
+    margin-inline: auto;
+  }
+}
+/* =============== END LAPORAN ABSENSI ============ */
+
+
+
+/* =============== START UBAH PASSWORD ============= */
+.ubah_password{
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+  margin-top: 90px;
+  margin-bottom: 50px;
+}
+
+.ubahPassword {
+  text-align: right;
+}
+
+.form-password {
+  width: 70%;
+}
+
+.form-group-password label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+  margin-right: 20px;
+}
+
+.form-group-password input {
+  width: 40%;
+  margin-bottom: 20px;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group-password input:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+.btn-submit-password {
+  background-color: #3498db;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit-password:hover {
+  background-color: #2980b9;
+}
+
+@media screen and (max-width: 600px) {
+  .form-container {
+    padding: 20px;
+  }
+
+  .btn-submit-password {
+    width: 100%;
+  }
+
+  .form-group-password label {
+    display: block;
+  }
+
+  .form-group-password input {
+    width: 100%;
+  }
+
+  .ubahPassword {
+    text-align: left;
+  }
+
+  .form-password {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .ubah_password {
+    margin-inline: 1rem;
+  }
+}
+
+@media screen and (min-width: 1118px) {
+  .ubah_password {
+    margin-inline: auto;
+  }
+}
+/* =================== END UBAH PASSWORD ========== */

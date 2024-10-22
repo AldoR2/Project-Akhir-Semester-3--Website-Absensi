@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Absensi</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/login.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/448de76965.js" crossorigin="anonymous"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<img class="wave" src="assets/img/gambar.png">
+	<div class="container">
+		<div class="img">
+			<img src="assets/img/change.png">
+		</div>
+		<div class="login-content">
+			<form action="index.php">
+				<img src="assets/img/logoStikes.png">
+				<h3 style="margin-bottom: 30px; text-align: center;">Ganti Password</h3>
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<h5>User ID (NIM)</h5>
+           		   		<input type="text" class="input">
+           		   </div>
+           		</div>
+           		<div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Password Baru</h5>
+           		    	<input type="password" class="input">
+            	   </div>
+            	</div>
+           		<div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fas fa-check"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Konfirmasi Password</h5>
+           		    	<input type="password" class="input">
+            	   </div>
+            	</div>
+				<input type="submit" class="btn" value="Submit">
+				<div class="register">
+					<h4>Sudah Memiliki Akun?</h4>
+					<a href="index.php">Login</a>
+				</div>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="assets/js/form.js"></script>
+</body>
+</html>
