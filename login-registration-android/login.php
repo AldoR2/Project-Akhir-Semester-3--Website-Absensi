@@ -6,8 +6,8 @@ include 'db_connection.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nip = $_POST['nip'] ?? null;
     $nim = $_POST['nim'] ?? null;
-    $password = $_POST['password'];
-    $role = $_POST['role'];
+    $password = $_POST['password'] ;
+    $role = $_POST['role'] ;
 
     if (empty($password) || empty($role)) {
         $response['status'] = 'fail';

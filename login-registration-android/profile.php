@@ -3,6 +3,8 @@ session_start(); // Memulai session
 
 include 'db_connection.php';
 
+$response = [];
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nip = $_POST['nip'] ?? null;
     $nim = $_POST['nim'] ?? null;
@@ -27,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bind_param("s", $nip);
     } else if ($role == 'mahasiswa' && !empty($nim)) {
         // Mengambil data menggunakan tabel mahasiswa
-        $sql = "SELECT * FROM mahasiswa WHERE nim = ?";
+        $sql = "SELECT m.*, p.nama_prodi FROM mahasiswa m LEFT JOIN program_studi p ON m.id_prodi = p.id_prodi WHERE m.nim = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $nim);
     } else {
@@ -41,17 +43,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $result = $stmt->get_result();
         $data = $result->fetch_assoc();
         if ($data) {
-            $response['status'] = ['success'];
+            $response['status'] = 'success';
             $response['role'] = $role; // Tambahkan role ke dalam respons
             $response['data'] = $data;
+        }else {     
+        $response['status'] = 'fail';
+        $response['message'] = 'Data tidak ditemukan';
         }
     } else {
         $response['status'] = 'fail';
-        $response['message'] = 'Gagal mengambilf data';
+        $response['message'] = 'Gagal mengambil data' . $stmt->error;
     }
 
-    echo json_encode($response);
-
-    $stmt->close();
-    $conn->close();
 }
+
+echo json_encode($response);
+
+$stmt->close();
+
+$conn->close();
