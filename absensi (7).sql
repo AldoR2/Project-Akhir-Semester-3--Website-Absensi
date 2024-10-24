@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2024 at 10:19 AM
+-- Generation Time: Oct 24, 2024 at 03:32 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -225,6 +225,7 @@ CREATE TABLE `presensi` (
 
 CREATE TABLE `program_studi` (
   `id_prodi` int(2) NOT NULL,
+  `kode_prodi` char(3) NOT NULL,
   `nama_prodi` char(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -232,9 +233,9 @@ CREATE TABLE `program_studi` (
 -- Dumping data for table `program_studi`
 --
 
-INSERT INTO `program_studi` (`id_prodi`, `nama_prodi`) VALUES
-(1, 'Teknik Informatika'),
-(2, 'Teknik Komputer');
+INSERT INTO `program_studi` (`id_prodi`, `kode_prodi`, `nama_prodi`) VALUES
+(1, '', 'Teknik Informatika'),
+(2, '', 'Teknik Komputer');
 
 -- --------------------------------------------------------
 
@@ -244,7 +245,8 @@ INSERT INTO `program_studi` (`id_prodi`, `nama_prodi`) VALUES
 
 CREATE TABLE `tahun_ajaran` (
   `id_tahun_ajar` int(2) NOT NULL,
-  `nama_tahun_ajar` int(4) NOT NULL
+  `tahun_ajar` char(9) NOT NULL,
+  `keterangan` enum('GANJIL','GENAP') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
